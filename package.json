@@ -1,0 +1,16 @@
+{
+  "name": "parser",
+  "version": "0.0.0",
+  "description": "parser",
+  "main": "app.js",
+  "author": {
+    "name": "xjz"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "htmlparser": "^1.7.7",
+    "iconv-lite": "^0.4.19",
+    "request": "^2.83.0",
+    "socks5-http-client": "^1.0.2"
+  }
+}
