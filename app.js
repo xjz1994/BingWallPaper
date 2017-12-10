@@ -1,14 +1,13 @@
 let fs = require('fs');
 let request = require('request');
-let htmlparser = require("htmlparser");
 var Agent = require('socks5-http-client/lib/Agent');//使用代理
-var iconv = require('iconv-lite');
 
 let id = 1;
 let JSONData = {};
 
 let startPage = 0
-let pageLimit = 7;
+let pageLimit = 7;                          //由于必应的API限制，最多只能获取7天前的壁纸
+let downloadPath = 'data/'                  //下载路径
 let timeLimit = 1000;
 
 var startApp = async () => {
@@ -61,7 +60,7 @@ var getPage = (curPage) => {
                 if (error) reject(error);
                 let arr = url.split("/");
                 let name = arr[arr.length - 1];
-                fs.writeFile(`data/${name}`, body, function (error, written) {
+                fs.writeFile(downloadPath + name, body, function (error, written) {
                     if (error) reject(error);
                     console.log(`Successfully written ${name}`);
                     resolve();
